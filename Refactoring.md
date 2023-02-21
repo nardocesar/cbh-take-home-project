@@ -9,3 +9,9 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+- I've moved `TRIVIAL_PARTITION_KEY` and `MAX_PARTITION_KEY_LENGTH` to outside the function `deterministicPartitionKey`. Since both are constants they won't be changed, so there's no reason to place them inside the function.
+- I've created a function called `createPartitionKey` to wrap the code and give it a more meaningful name.
+- Got away from the `if (event) ...` because there's no reason to nest two IF on that. It'll just either have a `partitionKey` prop or not. If there's no event, it should return `TRIVIAL_PARTITION_KEY` immediately.
+- Splitted `candidate` into `candidate` and `partitionKey` to make thing cleaner and avoid multiple rewrite.
+- Updated the `exports.deterministicPartitionKey` to receive the `createPartitionKey` function to keep things cleaner and easier to maintain.
