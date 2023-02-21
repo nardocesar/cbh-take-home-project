@@ -53,3 +53,13 @@ This feature will update the Shifts table to reference custom Agent IDs instead 
 - The Shifts table is updated to reference custom Agent IDs
 - Reports show the custom Agent ID instead of the internal database ID
 - The old internal database ID is still accessible if needed for historical purposes
+
+### Ticket 5 (Bonus): Ensure backwards compatibility with old Agent IDs
+
+This ticket was created to ensure that old reports using internal database IDs will still be valid and accurate after the custom ID feature is released.
+
+#### Acceptance Criteria:
+
+Old reports still work and show internal database IDs
+Reports generated after custom IDs are added show the custom ID
+Custom IDs can be updated for Agents who have old reports
